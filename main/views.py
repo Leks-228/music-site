@@ -18,6 +18,10 @@ from django.contrib.auth import update_session_auth_hash
 from .forms import RegisterForm, TrackUploadForm, AlbumUploadForm, TrackForm, BaseTrackFormSet
 from .forms import UserEditForm, ProfileEditForm, CustomPasswordChangeForm
 from .models import Artist, Album, Track, Favorite, Playlist, ListeningHistory, Profile
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("WORKS")
 
 
 def stream_audio(request, file_path):
