@@ -83,9 +83,15 @@ def get_liked_track_ids(user):
     return []
 
 
-def index(request):
-    return HttpResponse("INDEX OK")
+from django.db import connection
+from django.http import HttpResponse
 
+def index(request):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT 1;")
+        row = cursor.fetchone()
+
+    return HttpResponse(f"INDEX OK + DB {row}")
 
 def popular_playlist(request):
     popular_tracks = Track.objects.order_by('-plays')
