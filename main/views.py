@@ -84,16 +84,7 @@ def get_liked_track_ids(user):
 
 
 def index(request):
-    tracks = Track.objects.all()
-    popular_tracks = Track.objects.order_by('-plays')[:5]
-    albums = Album.objects.all().order_by('-created_at')[:8]
-    liked_track_ids = get_liked_track_ids(request.user)
-    return render(request, 'main/index.html', {
-        'tracks': tracks,
-        'popular_tracks': popular_tracks,
-        'albums': albums,
-        'liked_track_ids': liked_track_ids,
-    })
+    return HttpResponse("INDEX OK")
 
 
 def popular_playlist(request):
