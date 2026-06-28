@@ -3,6 +3,7 @@ from pathlib import Path
 import dj_database_url
 import cloudinary
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # БЕЗОПАСНОСТЬ — берём из переменных окружения на Render
@@ -58,10 +59,7 @@ WSGI_APPLICATION = 'music_site.wsgi.application'
 
 # БАЗА ДАННЫХ
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 # На Render — PostgreSQL
