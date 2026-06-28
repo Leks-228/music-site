@@ -28,4 +28,5 @@ urlpatterns = [
     path('profile/edit/', views.profile_edit, name='profile_edit'),
     path('profile/change-password/', views.change_password, name='change_password'),
     path('playlist/<int:playlist_id>/delete/', views.delete_playlist, name='delete_playlist'),
+    path('db-test/', views.db_test),
 ]
